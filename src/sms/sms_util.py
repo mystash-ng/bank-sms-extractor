@@ -29,3 +29,16 @@ def correct_balance_and_amount(data):
     if balance:
         balance = remove_comma_from_number(balance)
     return {**data, 'amount': amount, 'balance': balance}
+
+
+def parse_data_for_worker_service(data):
+    """Parses data for worker service"""
+    return {
+        'uid': data.get('uid'),
+        'date': data.get('date'),
+        'amount': data.get('amount'),
+        'balance': data.get('balance'),
+        'type': data.get('transaction_type'),
+        'narration': data.get('description'),
+        'sender': data.get('sender'),
+    }

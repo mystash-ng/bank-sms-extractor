@@ -1,7 +1,11 @@
 from flask_restx import Namespace, Resource
 from flask import request
 from src.sms.sms_dto import process_sms_dto
-from src.sms.sms_util import process_bank_sms, correct_balance_and_amount
+from src.sms.sms_util import (
+    process_bank_sms,
+    correct_balance_and_amount,
+    parse_data_for_worker_service,
+)
 
 
 sms_namespace = Namespace('Sms', 'SMS Module')
@@ -17,4 +21,5 @@ class ProcessSms(Resource):
         result = list(map(process_bank_sms, payload))
         result = list(filter(lambda x: x is not None, result))
         result = list(map(correct_balance_and_amount, result))
+        result = list(map(parse_data_for_worker_service, result))
         return result
