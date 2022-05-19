@@ -5,12 +5,13 @@ def process_bank_sms(data):
     """Processes bank sms"""
     message = data.get('message')
     sender = data.get('sender')
+    uid = data.get('uid')
     processor = bank_processors.get(sender)
     if not processor:
         return None
     try:
         data = processor(message)
-        return data
+        return {**data, 'uid': uid, 'sender': sender}
     except Exception:
         return None
 

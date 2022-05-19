@@ -5,4 +5,5 @@ def process_sms_dto(api: Namespace):
     return api.model('SMS', {
         'sender': fields.String,
         'message': fields.String,
+        'uid': fields.String,
     })
