@@ -6,12 +6,13 @@ def process_bank_sms(data):
     message = data.get('message')
     sender = data.get('sender')
     uid = data.get('uid')
+    date = data.get('createdAt')
     processor = bank_processors.get(sender)
     if not processor:
         return None
     try:
         data = processor(message)
-        return {**data, 'uid': uid, 'sender': sender}
+        return {**data, 'uid': uid, 'sender': sender, 'date': date}
     except Exception:
         return None
 
