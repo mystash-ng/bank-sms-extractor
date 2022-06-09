@@ -13,7 +13,7 @@ def process_bank_sms(data):
     try:
         data = processor(message)
         return {**data, 'uid': uid, 'sender': sender, 'date': date}
-    except Exception:
+    except Exception as e:
         return None
 
 
