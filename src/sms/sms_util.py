@@ -3,11 +3,11 @@ from src.sms.processors import bank_processors
 
 def process_bank_sms(data):
     """Processes bank sms"""
-    message = data.get('message')
-    sender = data.get('sender')
+    message: str = data.get('message')
+    sender: str = data.get('sender')
     uid = data.get('uid')
     date = data.get('createdAt')
-    processor = bank_processors.get(sender)
+    processor = bank_processors.get(sender.lower())
     if not processor:
         return None
     try:

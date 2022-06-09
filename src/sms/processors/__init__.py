@@ -7,11 +7,11 @@ from src.sms.processors.wema_bank import wema_bank_processor
 from src.sms.processors.zenith_bank import zenith_bank_processor
 
 bank_processors = {
-    "FirstBank": first_bank_processor,
-    "AccessBank": access_bank_processor,
-    "GTBank": gtbank_processor,
-    "KEYSTONE": keystone_bank_processor,
-    "UBA": uba_processor,
-    "WemaBank": wema_bank_processor,
-    "ZENITHBANK": zenith_bank_processor,
+    "firstbank": first_bank_processor,
+    "accessbank": access_bank_processor,
+    "gtbank": gtbank_processor,
+    "keystone": keystone_bank_processor,
+    "uba": uba_processor,
+    "wemabank": wema_bank_processor,
+    "zenithbank": zenith_bank_processor,
 }
