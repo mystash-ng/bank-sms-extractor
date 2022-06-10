@@ -15,7 +15,7 @@ def zenith_bank_processor(message: str):
     account_number = account_number[len('Acct:'):]
 
     # # Fetch Description
-    # description = re.findall(r'(?<=\n)(.*?)(?=\n)', message)[1]
+    description = re.findall(r'(?<=\n)(.*?)(?=\n)', message)[1]
 
     # Fetch Amount
     amount = re.findall(r'Amt:[\d+,]+.\d+', message)
@@ -33,7 +33,7 @@ def zenith_bank_processor(message: str):
     balance = balance[len('Bal:'):]
 
     return {
-        'description': 'Zenith Narration is unavailable',
+        'description': description,
         'transaction_type': transaction_type,
         'account_number': account_number,
         'amount': amount,
